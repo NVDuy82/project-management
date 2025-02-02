@@ -1,0 +1,21 @@
+server:
+  port: 8086
+  servlet:
+    context-path: /history
+
+spring:
+  application:
+    name: history-service
+  datasource:
+    url: "jdbc:mysql://localhost:3306/project_management_history"
+    driverClassName: "com.mysql.cj.jdbc.Driver"
+    username: root
+    password: passroot
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+app:
+  services:
+    profile: http://localhost:8081/profile

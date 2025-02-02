@@ -1,0 +1,61 @@
+server:
+  port: 8888
+
+app:
+  api-prefix: /api
+  api-strip-prefix: 1
+
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    gateway:
+      routes:
+        - id: identity_service
+          uri: http://localhost:8080
+          predicates:
+            - Path=${app.api-prefix}/identity/**
+          filters:
+            - StripPrefix=${app.api-strip-prefix}
+        - id: profile_service
+          uri: http://localhost:8081
+          predicates:
+            - Path=${app.api-prefix}/profile/**
+          filters:
+            - StripPrefix=${app.api-strip-prefix}
+        - id: project_service
+          uri: http://localhost:8082
+          predicates:
+            - Path=${app.api-prefix}/project/**
+          filters:
+            - StripPrefix=${app.api-strip-prefix}
+        - id: task_service
+          uri: http://localhost:8083
+          predicates:
+            - Path=${app.api-prefix}/task/**
+          filters:
+            - StripPrefix=${app.api-strip-prefix}
+        - id: report_service
+          uri: http://localhost:8084
+          predicates:
+            - Path=${app.api-prefix}/report/**
+          filters:
+            - StripPrefix=${app.api-strip-prefix}
+        - id: comment_service
+          uri: http://localhost:8085
+          predicates:
+            - Path=${app.api-prefix}/comment/**
+          filters:
+            - StripPrefix=${app.api-strip-prefix}
+        - id: history_service
+          uri: http://localhost:8086
+          predicates:
+            - Path=${app.api-prefix}/history/**
+          filters:
+            - StripPrefix=${app.api-strip-prefix}
+        - id: notification_service
+          uri: http://localhost:8087
+          predicates:
+            - Path=${app.api-prefix}/notification/**
+          filters:
+            - StripPrefix=${app.api-strip-prefix}

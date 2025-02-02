@@ -1,0 +1,12 @@
+server:
+  port: 8084
+  servlet:
+    context-path: /report
+spring:
+  application:
+    name: report-service
+
+app:
+  services:
+    project: http://localhost:8082/project
+    task: http://localhost:8083/task

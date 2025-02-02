@@ -1,0 +1,22 @@
+server:
+  port: 8083
+  servlet:
+    context-path: /task
+spring:
+  application:
+    name: task-service
+  datasource:
+    url: "jdbc:mysql://localhost:3306/project_management_task"
+    driverClassName: "com.mysql.cj.jdbc.Driver"
+    username: root
+    password: passroot
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+app:
+  services:
+    profile: http://localhost:8081/profile
+    project: http://localhost:8082/project
+    notification: http://localhost:8087/notification

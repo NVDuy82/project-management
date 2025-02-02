@@ -1,0 +1,30 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /identity
+
+spring:
+  application:
+    name: identity-service
+  datasource:
+    url: "jdbc:mysql://localhost:3306/project_management_identity"
+    driverClassName: "com.mysql.cj.jdbc.Driver"
+    username: root
+    password: passroot
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  kafka:
+    bootstrap-servers: localhost:9094
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+jwt:
+  signerKey: "Joh4I0O7MPaU4wfNpzEl/9vbKNlc3PQNPxE5zJr0zd8R+zApwXgD1D7ee7bsKi5F"
+  valid-duration: 3600 # in second
+  refreshable-duration: 36000 # in seconds
+
+app:
+  services:
+    profile: http://localhost:8081/profile
